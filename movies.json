@@ -1,0 +1,17 @@
+{
+    "Jumanji": {
+        "year": "1995",
+        "rating": 7.1,
+        "poster": "https://m.media-amazon.com/images/M/MV5BYTFkMjFmODgtYzRiZi00NmQwLTliZWMtMzRhMWQ5ZmY3ZDExXkEyXkFqcGc@._V1_SX300.jpg"
+    },
+    "Blade Runner": {
+        "year": "1982",
+        "rating": 8.1,
+        "poster": "https://m.media-amazon.com/images/M/MV5BOWQ4YTBmNTQtMDYxMC00NGFjLTkwOGQtNzdhNmY1Nzc1MzUxXkEyXkFqcGc@._V1_SX300.jpg"
+    },
+    "Cowboy Bebop": {
+        "year": "1998\u20131999",
+        "rating": 8.9,
+        "poster": "https://m.media-amazon.com/images/M/MV5BMTU3ZTdiOGQtYmYwYy00OGM5LThmNjMtZGJmNTVlZjk1ZmEyXkEyXkFqcGc@._V1_SX300.jpg"
+    }
+}
