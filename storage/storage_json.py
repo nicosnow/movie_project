@@ -2,7 +2,7 @@ import json
 import requests
 from istorage import IStorage
 
-class StorageApiJson(IStorage):
+class StorageJson(IStorage):
     """
     Combined API and JSON storage implementation for movie data.
     """
@@ -24,14 +24,21 @@ class StorageApiJson(IStorage):
             with open(self.file_path, 'r') as file:
                 return json.load(file)
         except FileNotFoundError:
+            print(f"File not found: {self.file_path}. Starting with an empty movie list.")
+            return {}
+        except json.JSONDecodeError:
+            print(f"Error decoding JSON from file: {self.file_path}. Starting with an empty movie list.")
             return {}
 
     def _save_movies(self):
         """
         Save movies to the JSON file.
         """
-        with open(self.file_path, 'w') as file:
-            json.dump(self.movies, file, indent=4)
+        try:
+            with open(self.file_path, 'w', encoding='utf-8') as file:
+                json.dump(self.movies, file, indent=4)
+        except IOError as e:
+            print(f"Error saving movies to file: {self.file_path}. {e}")
 
     def _fetch_movie_details(self, title):
         """
@@ -63,18 +70,22 @@ class StorageApiJson(IStorage):
         """
         List all movies.
         """
-        movies = self._fetch_movies()
-        print(f"{len(movies)} movies in total:\n")
-        for movie in movies:
-            print(f"{movie['title']} ({movie['year']}): {movie['rating']}")
+        try:
+            movies = self._fetch_movies()
+            if not movies:
+                print("No movies available.")
+                return []
+            print(f"{len(movies)} movies in total:\n")
+            for movie in movies:
+                print(f"{movie['title']} ({movie['year']}): {movie['rating']}")
+            return movies
+        except Exception as e:
+            print(f"Error listing movies: {e}")
+            return []
 
     def add_movie(self, title, year=None, rating=None, poster=None, description=None):
-        """
-        Add a new movie. If details are not provided, fetch from the OMDb API.
-        """
-        if title in self.movies:
-            print("Movie already exists.")
-            return
+        if title.lower() in (movie.lower() for movie in self.movies):
+            raise Exception("Movie already exists.")
         if not year or not rating or not poster or not description:
             movie_details = self._fetch_movie_details(title)
             if movie_details:
@@ -87,10 +98,10 @@ class StorageApiJson(IStorage):
                     "description": movie_details.get('Plot', 'No description available')
                 }
             else:
-                print("Error: Movie not found.")
-                return
+                raise Exception("Error: Movie not found.")
         else:
             movie = {
+                'title': title,
                 'year': year,
                 'rating': float(rating),
                 'poster': poster,
@@ -111,7 +122,7 @@ class StorageApiJson(IStorage):
             self._save_movies()
             print("Movie deleted successfully!")
         else:
-            print("Error: Movie not found.")
+            raise Exception("Error: Movie not found.")
 
     def update_movie(self, title, rating):
         """
@@ -124,4 +135,4 @@ class StorageApiJson(IStorage):
             self._save_movies()
             print("Movie rating updated successfully!")
         else:
-            print("Error: Movie not found.")
+            raise Exception("Error: Movie not found.")
