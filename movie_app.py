@@ -42,29 +42,30 @@ class MovieApp:
 
     def _command_random_movie(self):
         """
-        Command to display a random movie.
+        Command to display a random movie and its rating.
         """
         movies = self._storage_json.movies
         if not movies:
             print("No movies available.")
         else:
-            movie = random.choice(list(movies.values()))
-            print(f"Random movie: {movie['title']} with rating {movie['rating']}")
+            title, details = random.choice(list(movies.items()))
+            print(f"Random movie: {title} with rating {details['rating']}")
         input("Press Enter to continue...")
 
     def _command_search_movie(self):
         """
-        Command to search for a movie by title.
+        Command to search for movies by part of the title.
         """
-        title = input("Enter movie title to search: ")
-        movie_details = self._storage_json.movies.get(title)
-        if movie_details:
-            print(f"Title: {movie_details['title']}")
-            print(f"Year: {movie_details['year']}")
-            print(f"Rating: {movie_details['rating']}")
-            print(f"Poster: {movie_details['poster']}")
+        query = input("Enter part of movie name to search: ").lower()
+        matched_movies = [
+            f"{title}, {details['rating']}"
+            for title, details in self._storage_json.movies.items()
+            if query in title.lower()
+        ]
+        if matched_movies:
+            print("\n".join(matched_movies))
         else:
-            print("Movie not found.")
+            print("No movies matched your query.")
         input("Press Enter to continue...")
 
     def _command_movies_sorted_by_rating(self):
@@ -72,11 +73,43 @@ class MovieApp:
         Command to display movies sorted by rating.
         """
         movies = self._storage_json.movies
-        sorted_movies = sorted(movies.values(), key=lambda x: x['rating'], reverse=True)
-        for movie in sorted_movies:
-            print(f"{movie['title']}: {movie['rating']}")
+        sorted_movies = sorted(movies.items(), key=lambda x: x[1]['rating'], reverse=True)
+        for title, details in sorted_movies:
+            print(f"{title}: {details['rating']}")
         input("Press Enter to continue...")
+    def _generate_website_file(self):
+        """
+        Generate the website file (index.html) with the movie data.
+        """
+        try:
+            movies = self._storage_json.movies
+            template_path = os.path.join('_static', 'index_template.html')
+            if not os.path.exists(template_path):
+                print(f"Template file not found: {template_path}")
+                return
 
+            with open(template_path, 'r') as file:
+                template = file.read()
+
+            movie_items = ""
+            for title, details in movies.items():
+                movie_items += f"""
+                <li>
+                    <h2>{title}</h2>
+                    <p>Year: {details['year']}</p>
+                    <p>Rating: {details['rating']}</p>
+                    <img src="{details['poster']}" alt="{title} poster">
+                </li>
+                """
+
+            html_content = template.replace("__TEMPLATE_MOVIE_GRID__", movie_items)
+
+            with open('index.html', 'w') as file:
+                file.write(html_content)
+            print("Website was generated successfully.")
+        except Exception as e:
+            print(f"An error occurred: {e}")
+        input("Press Enter to continue...")
     def _generate_website(self):
         """
         Generate the movie database menu and handle user input.
@@ -132,44 +165,9 @@ class MovieApp:
                 self._command_movies_sorted_by_rating()
             elif choice == '9':
                 self._generate_website_file()
-                print("Website was generated successfully.")
-                input("Press Enter to continue...")
             else:
                 print("Invalid choice. Please try again.")
                 input("Press Enter to continue...")
-
-    def _generate_website_file(self):
-        """
-        Generate the website file (index.html) with the movie data.
-        """
-        try:
-            movies = self._storage_json.movies
-            template_path = os.path.join('_static', 'index_template.html')
-            if not os.path.exists(template_path):
-                print(f"Template file not found: {template_path}")
-                return
-
-            with open(template_path, 'r') as file:
-                template = file.read()
-
-            movie_items = ""
-            for title, details in movies.items():
-                movie_items += f"""
-                <li>
-                    <h2>{title}</h2>
-                    <p>Year: {details['year']}</p>
-                    <p>Rating: {details['rating']}</p>
-                    <img src="{details['poster']}" alt="{title} poster">
-                </li>
-                """
-
-            html_content = template.replace("__TEMPLATE_MOVIE_GRID__", movie_items)
-
-            with open('index.html', 'w') as file:
-                file.write(html_content)
-            print("Website was generated successfully.")
-        except Exception as e:
-            print(f"An error occurred: {e}")
 
     def run(self):
         """

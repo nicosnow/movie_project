@@ -50,8 +50,10 @@ class StorageJson(IStorage):
         """
         Delete a movie by title.
         """
-        if title in self.movies:
-            del self.movies[title]
+        title_lower = title.lower()
+        movies_lower = {k.lower(): k for k in self.movies.keys()}
+        if title_lower in movies_lower:
+            del self.movies[movies_lower[title_lower]]
             self._save_movies()
             print("Movie deleted successfully!")
         else:
@@ -61,8 +63,10 @@ class StorageJson(IStorage):
         """
         Update the rating of a movie.
         """
-        if title in self.movies:
-            self.movies[title]['rating'] = float(rating)
+        title_lower = title.lower()
+        movies_lower = {k.lower(): k for k in self.movies.keys()}
+        if title_lower in movies_lower:
+            self.movies[movies_lower[title_lower]]['rating'] = float(rating)
             self._save_movies()
             print("Movie rating updated successfully!")
         else:

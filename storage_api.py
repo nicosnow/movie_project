@@ -73,8 +73,10 @@ class StorageApi(IStorage):
         """
         Delete a movie by title.
         """
-        if title in self.movies:
-            del self.movies[title]
+        title_lower = title.lower()
+        movies_lower = {k.lower(): k for k in self.movies.keys()}
+        if title_lower in movies_lower:
+            del self.movies[movies_lower[title_lower]]
             print("Movie deleted successfully!")
         else:
             print("Error: Movie not found.")
@@ -83,8 +85,10 @@ class StorageApi(IStorage):
         """
         Update the rating of a movie.
         """
-        if title in self.movies:
-            self.movies[title]['rating'] = rating
+        title_lower = title.lower()
+        movies_lower = {k.lower(): k for k in self.movies.keys()}
+        if title_lower in movies_lower:
+            self.movies[movies_lower[title_lower]]['rating'] = rating
             print("Movie rating updated successfully!")
         else:
             print("Error: Movie not found.")

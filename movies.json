@@ -13,5 +13,30 @@
         "year": "1998\u20131999",
         "rating": 8.9,
         "poster": "https://m.media-amazon.com/images/M/MV5BMTU3ZTdiOGQtYmYwYy00OGM5LThmNjMtZGJmNTVlZjk1ZmEyXkEyXkFqcGc@._V1_SX300.jpg"
+    },
+    "Dune: Part Two": {
+        "year": "2024",
+        "rating": 8.5,
+        "poster": "https://m.media-amazon.com/images/M/MV5BNTc0YmQxMjEtODI5MC00NjFiLTlkMWUtOGQ5NjFmYWUyZGJhXkEyXkFqcGc@._V1_SX300.jpg"
+    },
+    "Dune: Part One": {
+        "year": "2021",
+        "rating": 8.0,
+        "poster": "https://m.media-amazon.com/images/M/MV5BNWIyNmU5MGYtZDZmNi00ZjAwLWJlYjgtZTc0ZGIxMDE4ZGYwXkEyXkFqcGc@._V1_SX300.jpg"
+    },
+    "The Fifth Element": {
+        "year": "1997",
+        "rating": 7.6,
+        "poster": "https://m.media-amazon.com/images/M/MV5BODU4ZTE5MWYtNmY2MC00NDkyLTk0NDgtNTk5YjgzMzc4NmQwXkEyXkFqcGc@._V1_SX300.jpg"
+    },
+    "The Wind Rises": {
+        "year": "2013",
+        "rating": 7.8,
+        "poster": "https://m.media-amazon.com/images/M/MV5BMTU4NDg0MzkzNV5BMl5BanBnXkFtZTgwODA3Mzc1MDE@._V1_SX300.jpg"
+    },
+    "Magnolia": {
+        "year": "1999",
+        "rating": 8.0,
+        "poster": "https://m.media-amazon.com/images/M/MV5BOWY0Zjk1YTMtMGFlYi00OTFmLWEyOTAtNmRkYjE0ZDJiZWMwXkEyXkFqcGc@._V1_SX300.jpg"
     }
 }
