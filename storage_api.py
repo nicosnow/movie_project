@@ -29,6 +29,7 @@ class StorageApi(IStorage):
             if movie_details.get('Response') == 'False':
                 print(f"Error: {movie_details.get('Error')}")
                 return None
+            #print(f"Fetched movie details: {movie_details}")  # Print the fetched movie details
             return movie_details
         except requests.exceptions.RequestException as e:
             print(f"Error: Unable to fetch movie details. {e}")
@@ -62,7 +63,9 @@ class StorageApi(IStorage):
                 "title": movie_details['Title'],
                 "year": movie_details['Year'],
                 "rating": movie_details['imdbRating'],
-                "poster": movie_details['Poster']
+                "poster": movie_details['Poster'],
+                "imdb_id": movie_details['imdbID'],
+                "description": movie_details.get('Plot', 'No description available')
             }
             self.movies[title] = movie
             print("Movie added successfully!")

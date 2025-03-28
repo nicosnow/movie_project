@@ -1,7 +1,13 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Movie App</title>
     <link rel="stylesheet" href="_static/style.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="_static/style.css">
+
 </head>
 <body>
 <div class="list-movies-title">
@@ -10,60 +16,68 @@
 <div>
     <ol class="movie-grid">
         
-                <li>
-                    <h2>Jumanji</h2>
-                    <p>Year: 1995</p>
-                    <p>Rating: 7.1</p>
-                    <img src="https://m.media-amazon.com/images/M/MV5BYTFkMjFmODgtYzRiZi00NmQwLTliZWMtMzRhMWQ5ZmY3ZDExXkEyXkFqcGc@._V1_SX300.jpg" alt="Jumanji poster">
+                <li style="list-style-type: none; margin-bottom: 20px;">
+                    <h2 style="text-align: center;">Jumanji</h2>
+                    <div style="display: flex; align-items: center;">
+                        <img src="https://m.media-amazon.com/images/M/MV5BYTFkMjFmODgtYzRiZi00NmQwLTliZWMtMzRhMWQ5ZmY3ZDExXkEyXkFqcGc@._V1_SX300.jpg" alt="Jumanji poster" style="width: 150px; height: auto; margin-right: 20px;">
+                        <div>
+                            <p><strong>Year:</strong> 1995</p>
+                            <p><strong>Rating:</strong> 7.1</p>
+                            <p><strong>Description:</strong> When two kids find and play a magical board game, they release a man trapped in it for decades - and a host of dangers that can only be stopped by finishing the game.</p>
+                        </div>
+                    </div>
                 </li>
                 
-                <li>
-                    <h2>Blade Runner</h2>
-                    <p>Year: 1982</p>
-                    <p>Rating: 8.1</p>
-                    <img src="https://m.media-amazon.com/images/M/MV5BOWQ4YTBmNTQtMDYxMC00NGFjLTkwOGQtNzdhNmY1Nzc1MzUxXkEyXkFqcGc@._V1_SX300.jpg" alt="Blade Runner poster">
+
+                <li style="list-style-type: none; margin-bottom: 20px;">
+                    <h2 style="text-align: center;">Memento</h2>
+                    <div style="display: flex; align-items: center;">
+                        <img src="https://m.media-amazon.com/images/M/MV5BYmQ3MjliNjAtNWFiZS00YWI1LTlmZTktMzBiNDE1NjRhZjU0XkEyXkFqcGc@._V1_SX300.jpg" alt="Memento poster" style="width: 150px; height: auto; margin-right: 20px;">
+                        <div>
+                            <p><strong>Year:</strong> 2000</p>
+                            <p><strong>Rating:</strong> 8.4</p>
+                            <p><strong>Description:</strong> Leonard Shelby, an insurance investigator, suffers from anterograde amnesia and uses notes and tattoos to hunt for the man he thinks killed his wife, which is the last thing he remembers.</p>
+                        </div>
+                    </div>
                 </li>
                 
-                <li>
-                    <h2>Cowboy Bebop</h2>
-                    <p>Year: 1998–1999</p>
-                    <p>Rating: 8.9</p>
-                    <img src="https://m.media-amazon.com/images/M/MV5BMTU3ZTdiOGQtYmYwYy00OGM5LThmNjMtZGJmNTVlZjk1ZmEyXkEyXkFqcGc@._V1_SX300.jpg" alt="Cowboy Bebop poster">
+
+                <li style="list-style-type: none; margin-bottom: 20px;">
+                    <h2 style="text-align: center;">Blade Runner</h2>
+                    <div style="display: flex; align-items: center;">
+                        <img src="https://m.media-amazon.com/images/M/MV5BOWQ4YTBmNTQtMDYxMC00NGFjLTkwOGQtNzdhNmY1Nzc1MzUxXkEyXkFqcGc@._V1_SX300.jpg" alt="Blade Runner poster" style="width: 150px; height: auto; margin-right: 20px;">
+                        <div>
+                            <p><strong>Year:</strong> 1982</p>
+                            <p><strong>Rating:</strong> 8.1</p>
+                            <p><strong>Description:</strong> A blade runner must pursue and terminate four replicants who stole a ship in space and have returned to Earth to find their creator.</p>
+                        </div>
+                    </div>
                 </li>
                 
-                <li>
-                    <h2>Dune: Part Two</h2>
-                    <p>Year: 2024</p>
-                    <p>Rating: 8.5</p>
-                    <img src="https://m.media-amazon.com/images/M/MV5BNTc0YmQxMjEtODI5MC00NjFiLTlkMWUtOGQ5NjFmYWUyZGJhXkEyXkFqcGc@._V1_SX300.jpg" alt="Dune: Part Two poster">
+
+                <li style="list-style-type: none; margin-bottom: 20px;">
+                    <h2 style="text-align: center;">Cowboy Bebop</h2>
+                    <div style="display: flex; align-items: center;">
+                        <img src="https://m.media-amazon.com/images/M/MV5BMTU3ZTdiOGQtYmYwYy00OGM5LThmNjMtZGJmNTVlZjk1ZmEyXkEyXkFqcGc@._V1_SX300.jpg" alt="Cowboy Bebop poster" style="width: 150px; height: auto; margin-right: 20px;">
+                        <div>
+                            <p><strong>Year:</strong> 1998–1999</p>
+                            <p><strong>Rating:</strong> 8.9</p>
+                            <p><strong>Description:</strong> The futuristic misadventures and tragedies of an easygoing bounty hunter and his partners.</p>
+                        </div>
+                    </div>
                 </li>
                 
-                <li>
-                    <h2>Dune: Part One</h2>
-                    <p>Year: 2021</p>
-                    <p>Rating: 8.0</p>
-                    <img src="https://m.media-amazon.com/images/M/MV5BNWIyNmU5MGYtZDZmNi00ZjAwLWJlYjgtZTc0ZGIxMDE4ZGYwXkEyXkFqcGc@._V1_SX300.jpg" alt="Dune: Part One poster">
-                </li>
-                
-                <li>
-                    <h2>The Fifth Element</h2>
-                    <p>Year: 1997</p>
-                    <p>Rating: 7.6</p>
-                    <img src="https://m.media-amazon.com/images/M/MV5BODU4ZTE5MWYtNmY2MC00NDkyLTk0NDgtNTk5YjgzMzc4NmQwXkEyXkFqcGc@._V1_SX300.jpg" alt="The Fifth Element poster">
-                </li>
-                
-                <li>
-                    <h2>The Wind Rises</h2>
-                    <p>Year: 2013</p>
-                    <p>Rating: 7.8</p>
-                    <img src="https://m.media-amazon.com/images/M/MV5BMTU4NDg0MzkzNV5BMl5BanBnXkFtZTgwODA3Mzc1MDE@._V1_SX300.jpg" alt="The Wind Rises poster">
-                </li>
-                
-                <li>
-                    <h2>Magnolia</h2>
-                    <p>Year: 1999</p>
-                    <p>Rating: 8.0</p>
-                    <img src="https://m.media-amazon.com/images/M/MV5BOWY0Zjk1YTMtMGFlYi00OTFmLWEyOTAtNmRkYjE0ZDJiZWMwXkEyXkFqcGc@._V1_SX300.jpg" alt="Magnolia poster">
+
+                <li style="list-style-type: none; margin-bottom: 20px;">
+                    <h2 style="text-align: center;">Magnolia</h2>
+                    <div style="display: flex; align-items: center;">
+                        <img src="https://m.media-amazon.com/images/M/MV5BOWY0Zjk1YTMtMGFlYi00OTFmLWEyOTAtNmRkYjE0ZDJiZWMwXkEyXkFqcGc@._V1_SX300.jpg" alt="Magnolia poster" style="width: 150px; height: auto; margin-right: 20px;">
+                        <div>
+                            <p><strong>Year:</strong> 1999</p>
+                            <p><strong>Rating:</strong> 8.0</p>
+                            <p><strong>Description:</strong> An epic mosaic of interrelated characters in search of love, forgiveness and meaning in the San Fernando Valley.</p>
+                        </div>
+                    </div>
                 </li>
                 
     </ol>

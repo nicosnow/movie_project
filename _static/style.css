@@ -1,52 +1,70 @@
 body {
-  background: #F5F5F0;
-  color: black;
-  font-family: Monaco;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
 }
 
 .list-movies-title {
-  padding: 10px 0;
-  background: #009B50;
-  color: white;
-  text-align: center;
-  font-size: 16pt;
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.list-movies-title h1 {
+    margin: 0;
 }
 
 .movie-grid {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    list-style-type: none;
+    padding: 0;
+    margin: 20px;
 }
 
 .movie-grid li {
-  padding: 10px 15px;
-  text-align: left;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    text-align: left;
 }
 
-.movie {
-  width: 140px;
+.movie-grid h2 {
+    font-size: 1.5em;
+    margin: 10px 0;
+    text-align: center;
 }
 
-.movie-title,
-.movie-year {
-  font-size: 0.8em;
-  text-align: center;
+.movie-grid .movie-details {
+    display: flex;
+    align-items: flex-start;
 }
 
-.movie-title {
-  margin-top: 10px;
+.movie-grid img {
+    max-width: 150px;
+    margin-right: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
 }
 
-.movie-year {
-  color: #999;
+.movie-grid .movie-info {
+    flex: 1;
 }
 
+.movie-grid p {
+    margin: 5px 0;
+}
 
-.movie-poster {
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-    width: 128px;
-    height: 193px;
+.movie-grid a {
+    text-decoration: none;
+    color: #333;
+}
+
+.movie-grid a:hover {
+    color: #007BFF;
 }

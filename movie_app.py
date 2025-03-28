@@ -77,6 +77,7 @@ class MovieApp:
         for title, details in sorted_movies:
             print(f"{title}: {details['rating']}")
         input("Press Enter to continue...")
+
     def _generate_website_file(self):
         """
         Generate the website file (index.html) with the movie data.
@@ -91,16 +92,22 @@ class MovieApp:
             with open(template_path, 'r') as file:
                 template = file.read()
 
-            movie_items = ""
-            for title, details in movies.items():
-                movie_items += f"""
-                <li>
-                    <h2>{title}</h2>
-                    <p>Year: {details['year']}</p>
-                    <p>Rating: {details['rating']}</p>
-                    <img src="{details['poster']}" alt="{title} poster">
+            movie_items = "\n".join(
+                f"""
+                <li style="list-style-type: none; margin-bottom: 20px;">
+                    <h2 style="text-align: center;">{title}</h2>
+                    <div style="display: flex; align-items: center;">
+                        <img src="{details['poster']}" alt="{title} poster" style="width: 150px; height: auto; margin-right: 20px;">
+                        <div>
+                            <p><strong>Description:</strong> {details['description']}</p>
+                            <p><strong>Year:</strong> {details['year']}</p>
+                            <p><strong>Rating:</strong> {details['rating']}</p>
+                        </div>
+                    </div>
                 </li>
                 """
+                for title, details in movies.items()
+            )
 
             html_content = template.replace("__TEMPLATE_MOVIE_GRID__", movie_items)
 
@@ -110,6 +117,7 @@ class MovieApp:
         except Exception as e:
             print(f"An error occurred: {e}")
         input("Press Enter to continue...")
+
     def _generate_website(self):
         """
         Generate the movie database menu and handle user input.

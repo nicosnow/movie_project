@@ -1,15 +1,18 @@
 import json
+import requests
 from istorage import IStorage
 
-class StorageJson(IStorage):
+class StorageApiJson(IStorage):
     """
-    JSON storage implementation for movie data.
+    Combined API and JSON storage implementation for movie data.
     """
 
-    def __init__(self, file_path):
+    def __init__(self, api_url, api_key, file_path):
         """
-        Initialize with the path to the JSON file.
+        Initialize with the API URL, API key, and path to the JSON file.
         """
+        self.api_url = api_url
+        self.api_key = api_key
         self.file_path = file_path
         self.movies = self._load_movies()
 
@@ -30,19 +33,70 @@ class StorageJson(IStorage):
         with open(self.file_path, 'w') as file:
             json.dump(self.movies, file, indent=4)
 
+    def _fetch_movie_details(self, title):
+        """
+        Fetch movie details from the OMDb API.
+        """
+        params = {
+            't': title,
+            'apikey': self.api_key
+        }
+        try:
+            response = requests.get(self.api_url, params=params)
+            response.raise_for_status()
+            movie_details = response.json()
+            if movie_details.get('Response') == 'False':
+                print(f"Error: {movie_details.get('Error')}")
+                return None
+            return movie_details
+        except requests.exceptions.RequestException as e:
+            print(f"Error: Unable to fetch movie details. {e}")
+            return None
+
+    def _fetch_movies(self):
+        """
+        Fetch all movies from the local storage.
+        """
+        return list(self.movies.values())
+
     def list_movies(self):
         """
         List all movies.
         """
-        print(f"{len(self.movies)} movies in total:\n")
-        for title, details in self.movies.items():
-            print(f"{title} ({details['year']}): {details['rating']}")
+        movies = self._fetch_movies()
+        print(f"{len(movies)} movies in total:\n")
+        for movie in movies:
+            print(f"{movie['title']} ({movie['year']}): {movie['rating']}")
 
-    def add_movie(self, title, year, rating, poster):
+    def add_movie(self, title, year=None, rating=None, poster=None, description=None):
         """
-        Add a new movie.
+        Add a new movie. If details are not provided, fetch from the OMDb API.
         """
-        self.movies[title] = {'year': year, 'rating': float(rating), 'poster': poster}
+        if title in self.movies:
+            print("Movie already exists.")
+            return
+        if not year or not rating or not poster or not description:
+            movie_details = self._fetch_movie_details(title)
+            if movie_details:
+                movie = {
+                    "title": movie_details['Title'],
+                    "year": movie_details['Year'],
+                    "rating": movie_details['imdbRating'],
+                    "poster": movie_details['Poster'],
+                    "imdb_id": movie_details['imdbID'],
+                    "description": movie_details.get('Plot', 'No description available')
+                }
+            else:
+                print("Error: Movie not found.")
+                return
+        else:
+            movie = {
+                'year': year,
+                'rating': float(rating),
+                'poster': poster,
+                'description': description
+            }
+        self.movies[title] = movie
         self._save_movies()
         print("Movie added successfully!")
 
@@ -57,7 +111,7 @@ class StorageJson(IStorage):
             self._save_movies()
             print("Movie deleted successfully!")
         else:
-            print("Movie not found. Please try again with one of the list")
+            print("Error: Movie not found.")
 
     def update_movie(self, title, rating):
         """
@@ -70,4 +124,4 @@ class StorageJson(IStorage):
             self._save_movies()
             print("Movie rating updated successfully!")
         else:
-            print("Movie not found. Please try again with one of the list")
+            print("Error: Movie not found.")

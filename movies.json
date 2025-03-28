@@ -1,42 +1,42 @@
 {
     "Jumanji": {
+        "title": "Jumanji",
         "year": "1995",
-        "rating": 7.1,
-        "poster": "https://m.media-amazon.com/images/M/MV5BYTFkMjFmODgtYzRiZi00NmQwLTliZWMtMzRhMWQ5ZmY3ZDExXkEyXkFqcGc@._V1_SX300.jpg"
+        "rating": "7.1",
+        "poster": "https://m.media-amazon.com/images/M/MV5BYTFkMjFmODgtYzRiZi00NmQwLTliZWMtMzRhMWQ5ZmY3ZDExXkEyXkFqcGc@._V1_SX300.jpg",
+        "imdb_id": "tt0113497",
+        "description": "When two kids find and play a magical board game, they release a man trapped in it for decades - and a host of dangers that can only be stopped by finishing the game."
+    },
+    "Memento": {
+        "title": "Memento",
+        "year": "2000",
+        "rating": "8.4",
+        "poster": "https://m.media-amazon.com/images/M/MV5BYmQ3MjliNjAtNWFiZS00YWI1LTlmZTktMzBiNDE1NjRhZjU0XkEyXkFqcGc@._V1_SX300.jpg",
+        "imdb_id": "tt0209144",
+        "description": "Leonard Shelby, an insurance investigator, suffers from anterograde amnesia and uses notes and tattoos to hunt for the man he thinks killed his wife, which is the last thing he remembers."
     },
     "Blade Runner": {
+        "title": "Blade Runner",
         "year": "1982",
-        "rating": 8.1,
-        "poster": "https://m.media-amazon.com/images/M/MV5BOWQ4YTBmNTQtMDYxMC00NGFjLTkwOGQtNzdhNmY1Nzc1MzUxXkEyXkFqcGc@._V1_SX300.jpg"
+        "rating": "8.1",
+        "poster": "https://m.media-amazon.com/images/M/MV5BOWQ4YTBmNTQtMDYxMC00NGFjLTkwOGQtNzdhNmY1Nzc1MzUxXkEyXkFqcGc@._V1_SX300.jpg",
+        "imdb_id": "tt0083658",
+        "description": "A blade runner must pursue and terminate four replicants who stole a ship in space and have returned to Earth to find their creator."
     },
     "Cowboy Bebop": {
+        "title": "Cowboy Bebop",
         "year": "1998\u20131999",
-        "rating": 8.9,
-        "poster": "https://m.media-amazon.com/images/M/MV5BMTU3ZTdiOGQtYmYwYy00OGM5LThmNjMtZGJmNTVlZjk1ZmEyXkEyXkFqcGc@._V1_SX300.jpg"
-    },
-    "Dune: Part Two": {
-        "year": "2024",
-        "rating": 8.5,
-        "poster": "https://m.media-amazon.com/images/M/MV5BNTc0YmQxMjEtODI5MC00NjFiLTlkMWUtOGQ5NjFmYWUyZGJhXkEyXkFqcGc@._V1_SX300.jpg"
-    },
-    "Dune: Part One": {
-        "year": "2021",
-        "rating": 8.0,
-        "poster": "https://m.media-amazon.com/images/M/MV5BNWIyNmU5MGYtZDZmNi00ZjAwLWJlYjgtZTc0ZGIxMDE4ZGYwXkEyXkFqcGc@._V1_SX300.jpg"
-    },
-    "The Fifth Element": {
-        "year": "1997",
-        "rating": 7.6,
-        "poster": "https://m.media-amazon.com/images/M/MV5BODU4ZTE5MWYtNmY2MC00NDkyLTk0NDgtNTk5YjgzMzc4NmQwXkEyXkFqcGc@._V1_SX300.jpg"
-    },
-    "The Wind Rises": {
-        "year": "2013",
-        "rating": 7.8,
-        "poster": "https://m.media-amazon.com/images/M/MV5BMTU4NDg0MzkzNV5BMl5BanBnXkFtZTgwODA3Mzc1MDE@._V1_SX300.jpg"
+        "rating": "8.9",
+        "poster": "https://m.media-amazon.com/images/M/MV5BMTU3ZTdiOGQtYmYwYy00OGM5LThmNjMtZGJmNTVlZjk1ZmEyXkEyXkFqcGc@._V1_SX300.jpg",
+        "imdb_id": "tt0213338",
+        "description": "The futuristic misadventures and tragedies of an easygoing bounty hunter and his partners."
     },
     "Magnolia": {
+        "title": "Magnolia",
         "year": "1999",
-        "rating": 8.0,
-        "poster": "https://m.media-amazon.com/images/M/MV5BOWY0Zjk1YTMtMGFlYi00OTFmLWEyOTAtNmRkYjE0ZDJiZWMwXkEyXkFqcGc@._V1_SX300.jpg"
+        "rating": "8.0",
+        "poster": "https://m.media-amazon.com/images/M/MV5BOWY0Zjk1YTMtMGFlYi00OTFmLWEyOTAtNmRkYjE0ZDJiZWMwXkEyXkFqcGc@._V1_SX300.jpg",
+        "imdb_id": "tt0175880",
+        "description": "An epic mosaic of interrelated characters in search of love, forgiveness and meaning in the San Fernando Valley."
     }
 }
